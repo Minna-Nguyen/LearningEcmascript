@@ -1,6 +1,7 @@
 var d = "this var is declared before function";
 function canYouSeeMe() {
-  if (true) {
+  let x = 1;
+  if (x == 1) {
     var f;
     var a = "var";
     let b = "let";
