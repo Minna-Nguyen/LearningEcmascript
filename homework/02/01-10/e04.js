@@ -34,6 +34,7 @@ let test = (value) => {
         console.log("no");
       };
 };
+// to access the inner functions, the result needs to be saved in some variable to show it
 let a = test(-33);
 a();
 */
