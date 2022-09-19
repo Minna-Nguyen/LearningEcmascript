@@ -1,15 +1,24 @@
 var fs = require("fs");
 var readline = require("readline-sync");
 
-let userInput = readline.question("What is the name of the file? ");
-console.log(`File name: ${userInput}.txt`);
-// asking user name for the file. The file has already content "hello worldsss"
-let createFile = fs.writeFileSync(
-  `${userInput}.txt`,
-  "hello worldsss",
-  (err, data) => console.log(data)
-);
+function doIt() {
+  var userInput = readline.question("What is the name of the file? ");
+  //ask name for the file -> create the file with that name
+  // if no errors, read the file content
+  fs.writeFile(`${userInput}.txt`, "helloooo", (err, data) => {
+    if (err) {
+      return false;
+    } else {
+      fs.readFile(`${userInput}.txt`, "utf-8", (err, data) => {
+        if (err) {
+          return false;
+        } else {
+          console.log(`filename: ${userInput}.txt`);
+          console.log(data);
+        }
+      });
+    }
+  });
+}
 
-let readFile = fs.readFile(`${userInput}.txt`, "utf-8", (err, data) =>
-  console.log(`The content of the file is: ${data}`)
-);
+doIt();
