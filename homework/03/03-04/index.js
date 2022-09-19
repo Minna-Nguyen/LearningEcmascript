@@ -11,5 +11,5 @@ let createFile = fs.writeFileSync(
 );
 
 let readFile = fs.readFile(`${userInput}.txt`, "utf-8", (err, data) =>
-  console.log(data)
+  console.log(`The content of the file is: ${data}`)
 );
